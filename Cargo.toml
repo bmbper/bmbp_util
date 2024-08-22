@@ -1,0 +1,12 @@
+[package]
+name = "bmbp_util"
+version = "0.0.0"
+edition = "2021"
+authors = ["bmbp<rs_bmbp.163.com>"]
+description = "BMBP AUTH"
+license = "MIT"
+readme = "README.md"
+homepage = "https://github.com/bmbper/bmbp_util"
+repository = "https://github.com/bmbper/bmbp_util"
+documentation = "https://github.com/bmbper/bmbp_util"
+[dependencies]
