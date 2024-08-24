@@ -10,3 +10,5 @@ homepage = "https://github.com/bmbper/bmbp_util"
 repository = "https://github.com/bmbper/bmbp_util"
 documentation = "https://github.com/bmbper/bmbp_util"
 [dependencies]
+uuid = { version = "1.10.0", features = ["serde", "v4"] }
+
