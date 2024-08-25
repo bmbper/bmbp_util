@@ -25,8 +25,8 @@ struct RdbcTreeNodeRef<'a, T>
     ref_node: Option<&'a T>,
     ref_children: RwLock<Vec<&'a RdbcTreeNodeRef<'a, T>>>,
 }
-pub struct RdbcTreeUtil;
-impl RdbcTreeUtil {
+pub struct BmbpTreeUtil;
+impl BmbpTreeUtil {
     pub fn build_tree<T>(tree_node_vec: Vec<T>) -> Vec<T>
         where
             T: BmbpTree<T> + Clone,
