@@ -1,6 +1,6 @@
 [package]
 name = "bmbp_util"
-version = "0.0.3"
+version = "0.0.4"
 edition = "2021"
 authors = ["bmbp<rs_bmbp.163.com>"]
 description = "BMBP AUTH"
@@ -11,3 +11,4 @@ repository = "https://github.com/bmbper/bmbp_util"
 documentation = "https://github.com/bmbper/bmbp_util"
 [dependencies]
 uuid = { version = "1.10.0", features = ["serde", "v4"] }
+chrono = { version = "0.4.23", features = ["serde"] }
