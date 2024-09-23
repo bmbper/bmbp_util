@@ -6,8 +6,8 @@ pub const BMBP_TREE_ROOT_NODE: &str = "#";
 
 /// RdbcTree 定义树型抽象
 pub trait BmbpTree<T>
-    where
-        T: BmbpTree<T>,
+where
+    T: BmbpTree<T>,
 {
     fn get_code(&self) -> &Option<String>;
     fn set_code(&mut self, code: Option<String>) -> &mut Self;
@@ -16,10 +16,13 @@ pub trait BmbpTree<T>
     fn get_children(&self) -> &Option<Vec<T>>;
     fn get_children_mut(&mut self) -> &mut Option<Vec<T>>;
     fn set_children(&mut self, children: Option<Vec<T>>) -> &mut Self;
+    fn get_order(&self) -> usize {
+        0usize
+    }
 }
 struct RdbcTreeNodeRef<'a, T>
-    where
-        T: BmbpTree<T> + Clone,
+where
+    T: BmbpTree<T> + Clone,
 {
     ref_parent: RwLock<Option<&'a T>>,
     ref_node: Option<&'a T>,
@@ -28,8 +31,8 @@ struct RdbcTreeNodeRef<'a, T>
 pub struct BmbpTreeUtil;
 impl BmbpTreeUtil {
     pub fn build_tree<T>(tree_node_vec: Vec<T>) -> Vec<T>
-        where
-            T: BmbpTree<T> + Clone,
+    where
+        T: BmbpTree<T> + Clone,
     {
         // 节点集合，方便后期直接从这里面取值
         let tree_node_ref_map = Self::build_tree_node_ref_map(tree_node_vec.as_slice());
@@ -46,8 +49,8 @@ impl BmbpTreeUtil {
     }
 
     fn build_tree_node_from_ref<T>(tree_node_ref_slice: &[&RdbcTreeNodeRef<T>]) -> Vec<T>
-        where
-            T: BmbpTree<T> + Clone,
+    where
+        T: BmbpTree<T> + Clone,
     {
         let mut tree_node_vec = vec![];
         for tree_node_ref in tree_node_ref_slice {
@@ -63,8 +66,8 @@ impl BmbpTreeUtil {
     }
 
     fn build_tree_node_ref_map<T>(tree_node_slice: &[T]) -> HashMap<String, RdbcTreeNodeRef<T>>
-        where
-            T: BmbpTree<T> + Clone,
+    where
+        T: BmbpTree<T> + Clone,
     {
         let mut tree_node_ref_map = HashMap::new();
 
@@ -110,8 +113,8 @@ impl BmbpTreeUtil {
     fn build_tree_root_ref_vec<'a, T>(
         tree_node_ref_map: &'a HashMap<String, RdbcTreeNodeRef<'a, T>>,
     ) -> Vec<&'a RdbcTreeNodeRef<'a, T>>
-        where
-            T: BmbpTree<T> + Clone,
+    where
+        T: BmbpTree<T> + Clone,
     {
         let mut root_node_vec = vec![];
         for item in tree_node_ref_map.values() {
@@ -122,4 +125,3 @@ impl BmbpTreeUtil {
         root_node_vec
     }
 }
-
