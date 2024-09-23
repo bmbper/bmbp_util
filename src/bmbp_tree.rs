@@ -1,5 +1,4 @@
 use std::collections::HashMap;
-use std::fmt::Debug;
 use std::sync::RwLock;
 
 pub const BMBP_TREE_ROOT_NODE: &str = "#";
