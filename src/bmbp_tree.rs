@@ -61,6 +61,7 @@ impl BmbpTreeUtil {
             tree_node.set_children(Some(children_tree_node_vec));
             tree_node_vec.push(tree_node);
         }
+        tree_node_vec.sort_by(|a, b| a.get_order().cmp(&b.get_order()));
         tree_node_vec
     }
 
